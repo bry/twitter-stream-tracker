@@ -11,7 +11,11 @@
 
 ### Config
 
-Stop words, program end time and TweetStream gem Twitter credentials are configurable in the `config.rb` file
+Stop words, program end time and TweetStream gem Twitter credentials are
+configurable in the `config.rb` file
+
+Create a [Twitter App](https://apps.twitter.com/), then use its credentials in
+the `config.rb` file.
 
 ### Lib
 
