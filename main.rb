@@ -1,12 +1,3 @@
-# To run the program
-#   1. Install Ruby 1.9.3,
-#   2. gem install tweetstream
-#      (https://github.com/tweetstream/tweetstream)
-#   3. ruby main.rb
-#
-# Configuration parameters are in the 'config.rb' file
-#
-
 require 'tweetstream'
 require_relative 'config'
 require_relative 'tweet_processor'
