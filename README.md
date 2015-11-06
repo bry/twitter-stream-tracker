@@ -9,9 +9,12 @@ the [tweetstream](https://github.com/tweetstream/tweetstream) gem.
     rvm install ruby 1.9.3 (or install Ruby 1.9.3)
     gem install tweetstream
 
-### Run
+### Usage
 
     ruby main.rb
+
+
+![Image demo](https://raw.github.com/bry/twitter_stream_tracker/master/results.png)
 
 ### Config
 
