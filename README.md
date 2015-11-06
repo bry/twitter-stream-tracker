@@ -9,12 +9,6 @@ the [tweetstream](https://github.com/tweetstream/tweetstream) gem.
     rvm install ruby 1.9.3 (or install Ruby 1.9.3)
     gem install tweetstream
 
-### Usage
-
-    ruby main.rb
-
-
-![Image demo](https://raw.github.com/bry/twitter_stream_tracker/master/results.png)
 
 ### Config
 
@@ -26,6 +20,13 @@ file.
 
 Create a [Twitter App](https://apps.twitter.com/), then use its credentials in
 the `config.rb` file.
+
+### Usage
+
+    ruby main.rb
+
+
+![Image demo](https://raw.github.com/bry/twitter_stream_tracker/master/results.png)
 
 ### Lib
 
