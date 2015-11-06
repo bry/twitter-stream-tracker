@@ -20,11 +20,14 @@ the [tweetstream](https://github.com/tweetstream/tweetstream) gem.
 
 Stop words, program end time and
 [tweetstream](https://github.com/tweetstream/tweetstream) gem Twitter
-credentials are configurable in the `config.rb` file.
+credentials are configurable in the 
+[config.rb](https://github.com/bry/twitter_stream_tracker/blob/master/config.rb) 
+file.
 
 Create a [Twitter App](https://apps.twitter.com/), then use its credentials in
 the `config.rb` file.
 
 ### Lib
 
-The `tweet_processor.rb` file contains all tweet word tracking logic.
+The [tweet_processor.rb](https://github.com/bry/twitter_stream_tracker/blob/master/tweet_processor.rb)
+file contains all tweet word tracking logic.
