@@ -28,13 +28,17 @@ module BBC
     end
 
     def list_top_words(number)
-      # Ruby 2.2.2 Enumerable .max(10) available
+      # Simplify with Ruby 2.2.2 Enumerable .max(10) available
       # @word_count_hash.max(10) { |a,b| a[1] <=> b[1] }
+      sorted_word_count_hash = word_count_hash.sort do |kv_pair1, kv_pair2|
+        kv_pair2[1] <=> kv_pair1[1]
+      end
+
+      top_kv_pairs = sorted_word_count_hash.first(number)
+
       puts "Ten Most Frequent Words:"
-      number.times do
-        max = word_count_hash.max { |a,b| a[1] <=> b[1] }
-        puts "#{max[0]}: #{max[1]}"
-        word_count_hash.delete(max[0])
+      top_kv_pairs.each do |key, value|
+        puts "#{key}: #{value}"
       end
     end
 
