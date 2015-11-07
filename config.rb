@@ -1,8 +1,3 @@
-# Configuration for main.rb
-#
-# Note: Use Ruby 1.9.3, Ruby 1.9.3 is a TweetStream gemspec dependency
-#
-
 STOP_WORDS = %w(and the me a or but is to of this that from in for on at - la 
                 y en de que I you my el your it with &amp &amp; e o te The be
                so los para like I'm do se)

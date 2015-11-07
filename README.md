@@ -6,6 +6,8 @@ the [tweetstream](https://github.com/tweetstream/tweetstream) gem.
 
 ### Installation
 
+Must use Ruby v1.9.3, a [tweetstream](https://github.com/tweetstream/tweetstream) gemspec dependency.
+
     rvm install ruby 1.9.3 (or install Ruby 1.9.3)
     gem install tweetstream
 
