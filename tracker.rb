@@ -20,6 +20,6 @@ EM.run do
     tweet = Tracker::Tweet.new(status.text)
     tracker.add_word_count(tweet)
     tracker.add_words_to_hash(tweet)
-    puts "#{status.text}"
+    puts tweet
   end
 end
