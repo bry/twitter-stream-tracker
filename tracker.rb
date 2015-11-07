@@ -18,8 +18,7 @@ EM.run do
   # Receive sample stream from Twitter and use Tracker::TweetTracker to parse
   client.sample do |status|
     tweet = Tracker::Tweet.new(status.text)
-    tracker.add_word_count(tweet)
-    tracker.add_words_to_hash(tweet)
+    tracker.process(tweet)
     puts tweet
   end
 end

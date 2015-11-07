@@ -5,6 +5,11 @@ module Tracker
       @word_count = {}
     end
 
+    def process(tweet)
+      add_word_count(tweet)
+      add_words_to_hash(tweet)
+    end
+
     def add_word_count(tweet)
       @total_word_count += tweet.word_count
     end
