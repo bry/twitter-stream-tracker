@@ -10,7 +10,7 @@ the [tweetstream](https://github.com/tweetstream/tweetstream) gem.
     gem install tweetstream
 
 ### Configuration
-Stop words, program end time and [tweetstream](https://github.com/tweetstream/tweetstream) gem Twitter
+Stop words, execution time limit and [tweetstream](https://github.com/tweetstream/tweetstream) gem Twitter
 credentials are configurable in the 
 [config.rb](https://github.com/bry/twitter_stream_tracker/blob/master/config.rb) 
 file.
@@ -23,12 +23,12 @@ Append stop words to filter words from tweet, removing them from top words count
 STOP_WORDS = %w(and the me a or but is to of this that from in for on at - la y en de que I you my el your it with &amp &amp; e o te The be so los para like I'm do se)
 ```
 
-##### Program End Time
+##### Execution Time Limit
 
-Set program termination time for X number in minutes.
+Set program to terminate in X number of seconds.
 
 ```ruby
-TERM_IN_MINS = 5
+TERM_IN_SECONDS = 300
 ```
 
 ##### Twitter App Credentials

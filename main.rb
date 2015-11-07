@@ -8,7 +8,7 @@ EM.run do
   tracker = BBC::TweetTracker.new
 
   # Set Periodic Timer to exit program and report results after 5 minutes
-  EM::PeriodicTimer.new(time_in_seconds = 60 * TERM_IN_MINS) do
+  EM::PeriodicTimer.new(TERM_IN_SECONDS) do
     client.stop
     tracker.print_results
     exit
