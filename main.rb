@@ -10,11 +10,7 @@ EM.run do
   # Set Periodic Timer to exit program and report results after 5 minutes
   EM::PeriodicTimer.new(time_in_seconds = 60 * TERM_IN_MINS) do
     client.stop
-    puts
-    puts "***********Results***********"
-    puts "Total Word Count: #{tracker.total_word_count}"
-    puts
-    tracker.list_top_words(10)
+    tracker.print_results
     exit
   end
 
