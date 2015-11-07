@@ -1,60 +1,25 @@
-module BBC
-  class Tweet
-    attr_reader :word_count
+require 'tweetstream'
+require_relative 'config'
+require_relative 'lib/tweet'
+require_relative 'lib/tweet_tracker'
 
-    def initialize(tweet)
-      @tweet = tweet.split(" ")
-      @word_count = @tweet.length
-    end
+# Use Event Machine for timer program reporting and exit
+EM.run do
+  client = TweetStream::Client.new
+  tracker = Tracker::TweetTracker.new
 
-    def filter_stop_words
-      @tweet.delete_if do |word|
-        STOP_WORDS.include?(word)
-      end
-    end
+  # Set Periodic Timer to exit program and report results after 5 minutes
+  EM::PeriodicTimer.new(TERM_IN_SECONDS) do
+    client.stop
+    tracker.print_results
+    exit
   end
 
-  class TweetTracker
-    def initialize
-      @total_word_count = 0
-      @word_count = {}
-    end
-
-    def add_word_count(tweet)
-      @total_word_count += tweet.word_count
-    end
-
-    def add_words_to_hash(tweet)
-      tweet.filter_stop_words.each do |word|
-        if word_count[word.to_sym].nil?
-          word_count[word.to_sym] = 1
-        else
-          word_count[word.to_sym] += 1
-        end
-      end
-    end
-
-    def print_results
-      puts
-      puts "***********Results***********"
-      puts "Total Word Count: #{@total_word_count}"
-      puts
-      puts "Ten Most Frequent Words:"
-      top(10).each do |key, value|
-        puts "#{key}: #{value}"
-      end
-    end
-
-    private
-
-    def top(number)
-      top_words = word_count.sort do |a, b|
-        b[1] <=> a[1]
-      end.first(number)
-    end
-
-    def word_count
-      @word_count
-    end
+  # Receive sample stream from Twitter and use Tracker::TweetTracker to parse
+  client.sample do |status|
+    tweet = Tracker::Tweet.new(status.text)
+    tracker.add_word_count(tweet)
+    tracker.add_words_to_hash(tweet)
+    puts "#{status.text}"
   end
 end

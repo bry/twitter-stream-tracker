@@ -49,7 +49,7 @@ end
 
 ### Usage
 
-    ruby main.rb
+    ruby tracker.rb
 
 
 ![Image demo](https://raw.github.com/bry/twitter_stream_tracker/master/results.png)
