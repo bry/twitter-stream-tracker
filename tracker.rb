@@ -1,6 +1,20 @@
 module BBC
-  class TweetProcessor
+  class Tweet
+    attr_reader :word_count
 
+    def initialize(tweet)
+      @tweet = tweet.split(" ")
+      @word_count = @tweet.length
+    end
+
+    def filter_stop_words
+      @tweet.delete_if do |word|
+        STOP_WORDS.include?(word)
+      end
+    end
+  end
+
+  class TweetTracker
     attr_reader :total_word_count
 
     def initialize
@@ -9,12 +23,11 @@ module BBC
     end
 
     def add_word_count(tweet)
-      words = tweet.split(" ")
-      @total_word_count += words.length
+      @total_word_count += tweet.word_count
     end
 
     def add_words_to_hash(tweet)
-      filter_stop_words(tweet).each do |word|
+      tweet.filter_stop_words.each do |word|
         if word_count[word.to_sym].nil?
           word_count[word.to_sym] = 1
         else
@@ -35,12 +48,6 @@ module BBC
     end
 
     private
-
-    def filter_stop_words(tweet)
-      tweet.split(" ").delete_if do |word|
-        STOP_WORDS.include?(word)
-      end
-    end
 
     def word_count
       @word_count
