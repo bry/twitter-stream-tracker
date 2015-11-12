@@ -1,5 +1,5 @@
-module Tracker
-  class TweetTracker
+module TwitterStream
+  class Tracker
     def initialize
       @total_word_count = 0
       @word_count = {}

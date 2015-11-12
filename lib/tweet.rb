@@ -1,4 +1,4 @@
-module Tracker
+module TwitterStream
   class Tweet
     attr_reader :word_count
 
